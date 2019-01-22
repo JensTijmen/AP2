@@ -1,11 +1,7 @@
-//Identifier interface
-//Set<E> interface
-/* List heeft al een interface en we moeten alleen al de functies binnen de class List schrijven zoals ze willen in
-* de interface */
-/* Parser */
-
+import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Set;
+
 
 public class Main {
 
@@ -14,12 +10,21 @@ public class Main {
         
         // While there is input, read line and parse it.
 
-        Identifier<String> identifier  = new Identifier<String>();
+        Scanner in = new Scanner(System.in);
+        while ( in.hasNextLine() ) {
+            System.out.println(in.nextLine());
+            try {
+                Scanner line = new Scanner( in.nextLine() );
+                statement(line);
+            } catch (APException e) {
+                System.out.println(e);
+            }
+        }
     }
 
     /*
     A program is any arbitrary number of statements (commands) ended by the end of file.
-     */
+    sou
     private void program() {
 
     }
@@ -27,7 +32,7 @@ public class Main {
     /*
     A statement is an assignment-statement, a print-statement or a comment-line.
      */
-    private void statement() {
+    private void statement(Scanner line) throws APException {
 
     }
 
