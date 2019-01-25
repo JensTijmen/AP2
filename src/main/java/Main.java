@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Set;
@@ -6,6 +7,10 @@ import java.util.Set;
 public class Main {
 
     private void start() {
+
+        HashMap<String, Set<BigInteger>> vars = new HashMap<String, Set<BigInteger>>();
+
+
         // Create a scanner on System.in
         
         // While there is input, read line and parse it.
@@ -33,7 +38,10 @@ public class Main {
     A statement is an assignment-statement, a print-statement or a comment-line.
      */
     private void statement(Scanner line) throws APException {
+        /* statement starting with a  '/' means a comment */
 
+        /* statement starting with a '?' means a print-statement */
+        /* statement starting with a letter indicates the beginning of an assignment statement */
     }
 
     /*
