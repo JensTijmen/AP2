@@ -1,5 +1,8 @@
 public class List<E extends Comparable<E>> implements ListInterface<E> {
 
+    private int size;
+    private Node last, current, first;
+
     private class Node {
 
         E data;
@@ -19,17 +22,25 @@ public class List<E extends Comparable<E>> implements ListInterface<E> {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        if( size == 0 ){
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override
     public ListInterface<E> init() {
-        return null;
+        size = 0;
+        first = null;
+        current = null;
+        last = null;
+        return this;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -39,7 +50,7 @@ public class List<E extends Comparable<E>> implements ListInterface<E> {
 
     @Override
     public E retrieve() {
-        return null;
+        return current.data;
     }
 
     @Override
@@ -54,26 +65,49 @@ public class List<E extends Comparable<E>> implements ListInterface<E> {
 
     @Override
     public boolean goToFirst() {
-        return false;
+        if ( isEmpty() ) {
+            return false;
+        }
+        current = first;
+        return true;
     }
 
     @Override
     public boolean goToLast() {
-        return false;
+        if ( isEmpty() ) {
+            return false;
+        }
+        current = last;
+        return true;
     }
 
     @Override
     public boolean goToNext() {
-        return false;
+        if ( isEmpty() ) {
+            return false;
+        }
+        if ( current == first ) {
+            return false;
+        }
+        current = current.next;
+        return true;
     }
 
     @Override
     public boolean goToPrevious() {
-        return false;
+        if ( isEmpty() ) {
+            return false;
+        }
+        if ( current == last ) {
+            return false;
+        }
+        current = current.prior;
+        return true;
     }
 
     @Override
     public ListInterface<E> copy() {
+
         return null;
     }
 }
